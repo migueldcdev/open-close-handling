@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 
 export const useOpenClose = () => {
     const [anchorEl, setAnchorEl] = useState<{
@@ -15,17 +15,35 @@ export const useOpenClose = () => {
         setAnchorEl({
             element: event.currentTarget,
             open: true,
-          });
+        });
     }
 
-    const buttonProps = {
+    function closeMenu(event: React.MouseEvent<HTMLElement>) {
+        event.preventDefault();
+        event.stopPropagation();
+        setAnchorEl({
+            element: event.currentTarget,
+            open: false,
+        });
+    }
+
+    const openButtonProps = {
         onClick: openMenu
     }
 
+    const closeButtonProps = {
+        onClick: closeMenu
+    }
+
     const menuProps = {
-        anchorEl: anchorEl.element,
+        anchorel: anchorEl.element,
         open: anchorEl.open,
     }
 
-    return { open: anchorEl.open, buttonProps, menuProps}
+    return { 
+        open: anchorEl.open,
+        openButtonProps,
+        closeButtonProps,
+        menuProps 
+    }
 }
