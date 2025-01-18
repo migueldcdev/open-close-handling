@@ -1,6 +1,17 @@
+import { useOpenClose } from "../../hooks"
 
 export const MenuComponent = () => {
+
+    const { buttonProps, menuProps, open } = useOpenClose()
+
     return(
-        <div>Menu</div>
+        <>
+         <button {...buttonProps}>Open</button>
+         {open &&
+            <div {...menuProps}>Menu</div>
+         }
+         
+        </>
+       
     )
 }
