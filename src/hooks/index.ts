@@ -9,7 +9,7 @@ export const useOpenClose = () => {
         open: false,
     });
 
-    function openMenu(event: MouseEvent<HTMLElement>) {
+    function openMenu(event: React.MouseEvent<HTMLElement>) {
         event.preventDefault();
         event.stopPropagation();
         setAnchorEl({
