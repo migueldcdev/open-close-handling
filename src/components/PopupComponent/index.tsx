@@ -1,20 +1,9 @@
-import { useOpenClose } from "../../hooks"
+import { ModalComponent } from "../ModalComponent"
 
-export const PopupComponent = () => {
-
-    const { openButtonProps, closeButtonProps, menuProps, open } = useOpenClose()
-
+export const PopupComponent = () => {   
     return(
-        <>
-         <button { ...openButtonProps }>Open</button>
-         {open &&
-            <div { ...menuProps }>
-                Popup
-                <button {... closeButtonProps }>X</button>
-            </div>
-         }
-         
-        </>
-       
+        <ModalComponent>
+            <p>Popup</p>
+        </ModalComponent>       
     )
 }
